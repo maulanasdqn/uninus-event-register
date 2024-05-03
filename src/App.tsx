@@ -1,18 +1,13 @@
 import React from 'react';
-import './App.css'
 import Form from './components/Form.tsx'
 
 
-function App() {
+const App: React.FC = () => {
   return (
-
-    <div className='App'>
-      <h1>Form Pendaftaran</h1>
-      <Form />
-    </div>
-
+      <div className="flex-1 flex items-center justify-center">
+        <Form />
+      </div>
   );
-
-}
+};
 
 export default App;
