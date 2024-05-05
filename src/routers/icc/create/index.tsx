@@ -90,13 +90,21 @@ export const CreateIccPage: FC = (): ReactElement => {
         <InputText control={control} label="Nama Lengkap" name="fullname" />
         <div className="w-full flex md:flex-row flex-col md:gap-x-4 gap-y-6">
           <InputText
+            type="number"
             control={control}
+            pattern="[0-9]"
             label="No. Telp ( WhatsApp )"
             name="phone"
           />
           <InputText control={control} label="Email" name="email" />
         </div>
-        <InputText pattern="\d*" control={control} label="Nim" name="nim" />
+        <InputText
+          type="number"
+          pattern="[0-9]"
+          control={control}
+          label="Nim"
+          name="nim"
+        />
         <Select
           defaultValue={""}
           placeholder="Pilih Kelas"
