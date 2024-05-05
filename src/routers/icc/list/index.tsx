@@ -8,8 +8,13 @@ export const ListICCPage = () => {
   const { data } = useGetRegistrant();
   const columns: ColumnDef<z.infer<typeof schema>>[] = [
     {
+      accessorKey: "no",
+      header: "No",
+      accessorFn: (_row, index) => index + 1,
+    },
+    {
       accessorKey: "fullname",
-      header: "Fullname",
+      header: "Nama Lengkap",
     },
     {
       accessorKey: "email",
@@ -17,7 +22,7 @@ export const ListICCPage = () => {
     },
     {
       accessorKey: "phone",
-      header: "Phone",
+      header: "Nomor Telepon ( WhatsApp )",
     },
     {
       accessorKey: "nim",
@@ -25,11 +30,11 @@ export const ListICCPage = () => {
     },
     {
       accessorKey: "class",
-      header: "Class",
+      header: "Kelas",
     },
     {
       accessorKey: "generation",
-      header: "Generation",
+      header: "Angkatan",
     },
   ];
   return (
