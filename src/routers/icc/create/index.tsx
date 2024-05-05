@@ -54,6 +54,10 @@ export const CreateIccPage: FC = (): ReactElement => {
       label: "2022",
       value: "2022",
     },
+    {
+      label: "2023",
+      value: "2023",
+    },
   ];
 
   const classOptions = [
