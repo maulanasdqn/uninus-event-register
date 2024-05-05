@@ -1,4 +1,9 @@
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import {
+  UseMutationResult,
+  UseQueryResult,
+  useMutation,
+  useQuery,
+} from "@tanstack/react-query";
 import { schema } from "./schema";
 import { supabase } from "@/libs/supabase";
 import { z } from "zod";
@@ -9,12 +14,12 @@ export const useGetRegistrant = (): UseQueryResult<
   PostgrestError
 > => {
   return useQuery({
-    queryKey: ["registrants"],
+    queryKey: ["get-registrants"],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("registrants")
         .select("*")
-        .order("id", { ascending: true });
+        .order("created_at", { ascending: true });
       if (!error) {
         return data;
       } else {
@@ -23,3 +28,21 @@ export const useGetRegistrant = (): UseQueryResult<
     },
   });
 };
+
+export const useCreateRegistrant = (): UseMutationResult<
+  unknown,
+  PostgrestError,
+  z.infer<typeof schema>,
+  unknown
+> =>
+  useMutation({
+    mutationKey: ["create-registrants"],
+    mutationFn: async (data) => {
+      const { error } = await supabase.from("registrants").insert(data);
+      if (!error) {
+        return;
+      } else {
+        throw error;
+      }
+    },
+  });

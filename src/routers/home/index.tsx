@@ -13,6 +13,12 @@ export const HomePage: FC = (): ReactElement => {
               Informatika Coding Camp
             </Link>
           </li>
+
+          <li>
+            <Link className="underline text-sm" to="/makrab/register">
+              Malam Keakraban Infomatika
+            </Link>
+          </li>
         </ul>
       </div>
     </section>

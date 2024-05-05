@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { InputText } from "@/components/ui/input-text";
 import { Select } from "@/components/ui/select";
-import { supabase } from "@/libs/supabase";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, ReactElement } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { schema } from "../schema";
+import { useCreateRegistrant } from "../hook";
 
 export const CreateIccPage: FC = (): ReactElement => {
   const {
@@ -30,18 +30,15 @@ export const CreateIccPage: FC = (): ReactElement => {
 
   const navigate = useNavigate();
 
+  const { mutate } = useCreateRegistrant();
+
   const onSubmit = handleSubmit(async (data) => {
-    const { error } = await supabase.from("registrants").insert(data);
-
-    reset();
-
-    if (error) {
-      console.log(error);
-    }
-
-    if (!error) {
-      navigate("/icc/list");
-    }
+    mutate(data, {
+      onSuccess: () => {
+        reset();
+        navigate("/icc/list");
+      },
+    });
   });
 
   const generationOptions = [
@@ -101,6 +98,7 @@ export const CreateIccPage: FC = (): ReactElement => {
         </div>
         <InputText pattern="\d*" control={control} label="Nim" name="nim" />
         <Select
+          defaultValue={""}
           placeholder="Pilih Kelas"
           control={control}
           options={classOptions}
@@ -108,6 +106,7 @@ export const CreateIccPage: FC = (): ReactElement => {
           name="class"
         />
         <Select
+          defaultValue={""}
           placeholder="Pilih Angkatan"
           options={generationOptions}
           control={control}
