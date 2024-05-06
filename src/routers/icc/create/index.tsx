@@ -83,8 +83,7 @@ export const CreateIccPage: FC = (): ReactElement => {
     <section className="flex flex-col w-full items-center px-6 bg-gray-50 justify-center min-h-screen">
       <form
         onSubmit={onSubmit}
-        className="bg-whit p-6 gap-y-6 shadow-md rounded-xl w-full md:w-1/2 h-auto flex flex-col border"
-      >
+        className="bg-whit p-6 gap-y-6 shadow-md rounded-xl w-full md:w-1/2 h-auto flex flex-col border">
         <div className="w-full justify-between flex items-center">
           <h1 className="text-2xl font-medium font-sans">Register ICC</h1>
           <Link to="/icc/list" className="text-sm font-sans underline">
