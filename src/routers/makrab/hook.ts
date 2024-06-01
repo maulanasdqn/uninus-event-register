@@ -20,11 +20,10 @@ export const useGetRegistrant = (): UseQueryResult<
         .from("register")
         .select("*")
         .order("created_at", { ascending: true });
-      if (!error) {
-        return data;
-      } else {
+      if (error) {
         throw error;
       }
+      return data;
     },
   });
 };
@@ -37,11 +36,9 @@ export const useCreateRegistrant = (): UseMutationResult<
 > =>
   useMutation({
     mutationKey: ["create-register"],
-    mutationFn: async (data) => {
-      const { error } = await supabase.from("register").insert(data);
-      if (!error) {
-        return;
-      } else {
+    mutationFn: async (newRegistrant) => {
+      const { error } = await supabase.from("register").insert(newRegistrant);
+      if (error) {
         throw error;
       }
     },
