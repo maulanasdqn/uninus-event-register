@@ -14,10 +14,10 @@ export const useGetRegistrant = (): UseQueryResult<
   PostgrestError
 > => {
   return useQuery({
-    queryKey: ["get-register"],
+    queryKey: ["get-registrants"],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from("register")
+        .from("registrants")
         .select("*")
         .order("created_at", { ascending: true });
       if (!error) {
@@ -36,9 +36,9 @@ export const useCreateRegistrant = (): UseMutationResult<
   unknown
 > =>
   useMutation({
-    mutationKey: ["create-register"],
+    mutationKey: ["create-registrants"],
     mutationFn: async (data) => {
-      const { error } = await supabase.from("register").insert(data);
+      const { error } = await supabase.from("registrants").insert(data);
       if (!error) {
         return;
       } else {

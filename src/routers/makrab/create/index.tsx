@@ -25,6 +25,8 @@ export const CreateMakrabPage: FC = (): ReactElement => {
       nim: "",
       class: "",
       generation: "",
+      historysignes: "",
+      payment: "",
     },
   });
 
@@ -117,6 +119,12 @@ export const CreateMakrabPage: FC = (): ReactElement => {
           label="Angkatan"
           name="generation"
         />
+        <InputText
+          control={control}
+          label="Riwayat Penyakit"
+          name="historysignes"
+        />
+        <InputText control={control} label="Pembayaran" name="payment" />
         <Button disabled={!isValid} type="submit">
           Register
         </Button>

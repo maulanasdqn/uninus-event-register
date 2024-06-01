@@ -36,6 +36,14 @@ export const ListMakrabPage = () => {
       accessorKey: "generation",
       header: "Angkatan",
     },
+    {
+      accessorKey: "historysignes",
+      header: "Riwayat Penyakit",
+    },
+    {
+      accessorKey: "payment",
+      header: "Pembayaran",
+    },
   ];
   return (
     <section className="w-full p-8 flex flex-col gap-y-6">
