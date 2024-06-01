@@ -25,7 +25,7 @@ export const CreateMakrabPage: FC = (): ReactElement => {
       nim: "",
       class: "",
       generation: "",
-      historySicknes: "",
+      historySickness: "",
       paymentStatus: "",
     },
   });
@@ -122,7 +122,7 @@ export const CreateMakrabPage: FC = (): ReactElement => {
         <InputText
           control={control}
           label="Riwayat Penyakit"
-          name="historySicknes"
+          name="historySickness"
         />
         <InputText control={control} label="Pembayaran" name="paymentStatus" />
         <Button disabled={!isValid} type="submit">
