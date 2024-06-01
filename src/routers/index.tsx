@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./home";
 import { CreateIccPage } from "./icc/create";
 import { ListICCPage } from "./icc/list";
-import { MakrabPage } from "./makrab";
+import { CreateMakrabPage } from "./makrab/create";
+import { ListMakrabPage } from "./makrab/list";
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +12,16 @@ export const router = createBrowserRouter([
   },
   {
     path: "/makrab/*",
-    element: <MakrabPage />,
+    children: [
+      {
+        path: "register",
+        element: <CreateMakrabPage />,
+      },
+      {
+        path: "list",
+        element: <ListMakrabPage />,
+      },
+    ],
   },
   {
     path: "/icc",
