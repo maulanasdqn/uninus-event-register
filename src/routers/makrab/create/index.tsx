@@ -21,12 +21,12 @@ export const CreateMakrabPage: FC = (): ReactElement => {
     defaultValues: {
       fullname: "",
       email: "",
-      phone: "",
+      phoneNumber: "",
       nim: "",
       class: "",
       generation: "",
-      historysignes: "",
-      payment: "",
+      historySicknes: "",
+      paymentStatus: "",
     },
   });
 
@@ -92,7 +92,7 @@ export const CreateMakrabPage: FC = (): ReactElement => {
             control={control}
             pattern="[0-9]"
             label="No. Telp ( WhatsApp )"
-            name="phone"
+            name="phoneNumber"
           />
           <InputText control={control} label="Email" name="email" />
         </div>
@@ -122,9 +122,9 @@ export const CreateMakrabPage: FC = (): ReactElement => {
         <InputText
           control={control}
           label="Riwayat Penyakit"
-          name="historysignes"
+          name="historySicknes"
         />
-        <InputText control={control} label="Pembayaran" name="payment" />
+        <InputText control={control} label="Pembayaran" name="paymentStatus" />
         <Button disabled={!isValid} type="submit">
           Register
         </Button>

@@ -21,7 +21,7 @@ export const ListMakrabPage = () => {
       header: "Email",
     },
     {
-      accessorKey: "phone",
+      accessorKey: "phoneNumber",
       header: "Nomor Telepon ( WhatsApp )",
     },
     {
@@ -37,11 +37,11 @@ export const ListMakrabPage = () => {
       header: "Angkatan",
     },
     {
-      accessorKey: "historysignes",
+      accessorKey: "historySicknes",
       header: "Riwayat Penyakit",
     },
     {
-      accessorKey: "payment",
+      accessorKey: "paymentStatus",
       header: "Pembayaran",
     },
   ];
