@@ -37,5 +37,5 @@ export const schema = z.object({
     .refine((value) => /^\d+$/.test(value), "Nim harus berupa angka"),
   class: z.string().min(1, "Kelas harus diisi"),
   generation: z.string().min(1, "Angkatan Harus diisi"),
-  historySickness: z.string().min(1, "Riwayat Penyakit Harus di isi")
+  historySicknes: z.string().min(1, "Riwayat Penyakit Harus di isi")
 });
