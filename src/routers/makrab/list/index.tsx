@@ -37,7 +37,7 @@ export const ListMakrabPage = () => {
       header: "Angkatan",
     },
     {
-      accessorKey: "historySickness",
+      accessorKey: "historySicknes",
       header: "Riwayat Penyakit",
     },
     {
